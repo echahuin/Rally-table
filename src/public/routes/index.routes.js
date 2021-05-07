@@ -5,16 +5,17 @@ const viewAdminHtml = document.getElementById('admin')
 
 console.log(Home)
 const router = (linkRoute)=>{
+    const socket = io() 
 
     viewAdminHtml.innerHTML = ``
 
     switch (linkRoute) {
         case '#/admin':
-                return viewAdminHtml.appendChild(Admin());
+                return viewAdminHtml.appendChild(Admin(socket));
             break;
 
         case '#/':
-                 return viewAdminHtml.appendChild(Home());
+                 return viewAdminHtml.appendChild(Home(socket));
             break;
         default:
             console.log('not found 404')

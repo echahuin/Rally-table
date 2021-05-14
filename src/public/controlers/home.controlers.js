@@ -1,8 +1,10 @@
 import htmlHome from '../view/home.html';
 import ordenArray from './funAdmin/ordenarArr'
-
+import './cssHome/home.css'
+import './cssHome/screen576.css'
+import './cssHome/screen768.css'
+import './cssHome/screen992.css'
 const Home = (socket)=>{
-
     
     const divElement = document.createElement('div')
     divElement.innerHTML = htmlHome
@@ -20,46 +22,14 @@ const Home = (socket)=>{
         return dt.map((dat, index)=>{
             return tableView.innerHTML += `
             <tr>
-                <th scope="row">${index}</th>
+                <td>${index}</td>
                 <td>${dat.nombre}</td>
+                <td>8</td>
                 <td>${dat.puntaje}</td>
             </tr>
             `
         })
     }
-    // socket.on('message',  async(e)=>{
-    //      data = await e.slice();
-    //      console.log('this data', e)
-    //      data.map((dt, index)=>{
-    //         return tableView.innerHTML += `
-    //         <tr>
-    //             <th scope="row">${index}</th>
-    //             <td>${dt.nombre}</td>
-    //             <td>${dt.puntaje}</td>
-    //         </tr>
-    //         `
-    //       })
-    
-    // })
-
-   
-
-
-    // axios.get('/getData', {
-    //     // params: {
-    //     //   ID: 12345
-    //     // }
-    //   })
-    //   .then(function (response) {
-    //       data = response.data;
-         
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .then(function () {
-    //     // always executed
-    //   });
     return divElement;
 } 
 

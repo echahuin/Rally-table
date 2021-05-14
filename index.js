@@ -40,17 +40,10 @@ const io = socketIo(server)
 
 // web socket 
 io.on('connection', async(socket)=>{
-    // console.log('this socket', socket)
-  
-    // console.log('new conection data', data)
+   
     socket.on('message', async(player)=>{
-        // const newData = new Player({
-        //     nombre: player.nombre,
-        //     puntaje: player.puntaje
-        //   }); 
-        // await Player.findOneAndUpdate( {_id: req.params.id}, newData)
+     
         const data = await Player.find();
-        // socket.emit('message')
         socket.broadcast.emit('message', data)
         console.log('new conection player', player)
     })

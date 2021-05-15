@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "postinstall": "npm run webpack",
     "dev": "nodemon index.js",
     "webpack": "webpack --mode development"
   },

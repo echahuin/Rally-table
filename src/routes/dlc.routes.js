@@ -19,6 +19,7 @@ router.post('/postData', async(req, res) => {
     const {nombre, puntaje} = req.body;
     const data = new Player({
       // _id,
+      numCarrera,
       nombre,
       puntaje  
     });
@@ -27,10 +28,11 @@ router.post('/postData', async(req, res) => {
     res.json({status: 'Task Saved'});
 })
 router.put('/:id', async(req, res )=>{
-  const {nombre, puntaje} = req.body;
+  const {numCarrera, nombre, puntaje} = req.body;
   console.log('this update', req.params.id)
   console.log('data', req.body)
   const newData = new Player({
+    numCarrera,
     nombre,
     puntaje
   }); 

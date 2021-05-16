@@ -1,21 +1,23 @@
 .docHome{
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.205);
     height: 100vh;
 }
 
 .head {
     margin: 0;
     padding: 0.5rem;
-    height: 40vh;
+    height: 35vh ;
     background: rgb(255, 255, 255);
     /* border: 1px rgba(235, 235, 235, 0.7) solid; */
 }
 
 .styleTitle{
     width: 100%;
-    padding-top: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
 }
 .styleTitle p{
+    margin: 0;
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
@@ -61,33 +63,63 @@
 .status{
     /* align-items: flex-end; */
     display: flex;
+    height: auto;
 }
 
 .liveWord{
-
+padding-top: .15rem;
 }
+
 
 .styleLive{
     display: flex;
-    align-items:stretch;
-    padding-left: .5rem;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
 }
-.gen{
-    margin-left: 10px;
-    margin-top: 10px;
-    height: 10px;
-    width: 10px;
-    border-radius: 50px;
-    background: rgb(255, 0, 0);
+.styleLive{
+   width: .7rem;
+   height: .7rem;
+   margin: 0rem 1rem;
+   border-radius: 50%;
+   background-color: rgb(252, 0, 0); 
+   animation: loader-animation .6s infinite alternate; 
 }
 
+@keyframes loader-animation {
+    to {
+        opacity: .1;
+        /* transform: translate3d(0, -1rem, 0); */
+        transform: translateX(0, -1rem, 0);
+    }
+}
+
+.styleLive > div:nth-child(2){
+    animation-delay: .2s;
+}
+.styleLive > div:nth-child(3){
+    animation-delay: .4s;
+}
+
+/* ---------------------------------- */
+
+.buttonActiveStyle{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: blue;
+    text-align: center;
+}
 
 /* ---------------------------------- */
 
 
 .contTable{
-    height: 100vh;
+    padding-bottom: 3rem;
+    height: auto;
     width: 100%;
+    border: 1px solid rgba(235, 235, 235, 0.7);
+    border-radius: 5%;
+    box-shadow: 0px 0px 5px 1px rgba(235, 235, 235, 0.7) ;
 }
 .tableContainer {
     width: 100%;
@@ -110,7 +142,7 @@ th{
 }
 td{
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     /* font-weight: 200; */
     text-align: start;
     padding-left: .2rem;

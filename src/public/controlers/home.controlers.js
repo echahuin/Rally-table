@@ -58,7 +58,7 @@ const Home = (socket)=>{
             }
             return tableView.innerHTML += `
             <tr>
-                <td>${index}</td>
+                <td>${index+1}</td>
                 <td>${dat.nombre}</td>
                 <td>${nCar}</td>
                 <td>${dat.puntaje}</td>

@@ -36,17 +36,9 @@ router.put('/:id', async(req, res )=>{
     nombre,
     puntaje
   }); 
-  // const rta = await Player.findById({_id: req.params.id})
-  // console.log('this now', rta)
   await Player.findOneAndUpdate( {_id: req.params.id}, newData)
   res.json({status: 'update data'})
 })
 
-// router.put('/:id', async (req, res) => {
-//   const { title, description } = req.body;
-//   const newTask = {title, description};
-//   await Task.findByIdAndUpdate(req.params.id, newTask);
-//   res.json({status: 'Task Updated'});
-// });
 
 module.exports = router;

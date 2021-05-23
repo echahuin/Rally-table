@@ -3,4 +3,8 @@
         display: flex;
         align-content: space-between;
     }
+    
+    .contTable{
+        width: 50rem;
+    }
 }

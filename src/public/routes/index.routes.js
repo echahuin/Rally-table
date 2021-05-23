@@ -2,8 +2,6 @@
 import { Home, Admin } from '../controlers'
 
 const viewAdminHtml = document.getElementById('admin')
-
-console.log(Home)
 const router = (linkRoute)=>{
     const socket = io() 
 

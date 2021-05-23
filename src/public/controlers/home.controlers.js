@@ -1,5 +1,6 @@
 import htmlHome from '../view/home.html';
 import ordenArray from './funAdmin/ordenarArr'
+import getDateNow from './funHome/getDateNow'
 import axios from 'axios'
 import './cssHome/home.css'
 import './cssHome/screen576.css'
@@ -11,18 +12,17 @@ const Home = (socket)=>{
     divElement.innerHTML = htmlHome
     const tableView = divElement.querySelector('#table')
     const buttonViewTable = divElement.querySelector('#buttonActivTable')
+    const dateNow = divElement.querySelector('#dateNow')
+
     let activeButton = true
 
     buttonViewTable.addEventListener('click', (e)=>{
         if(activeButton){
             sendGetRequest()
+            buttonViewTable.innerHTML = ''
             activeButton = false
         }        
     })
-    if(activeButton === false){
-        console.log('color cambio ?')
-        ul.style.backgroundColor = "#6ab150";
-    }
 
     const sendGetRequest = async () => {
         // console.log('estamos dentro de la funcion ')
@@ -37,6 +37,10 @@ const Home = (socket)=>{
         }
     };
 
+    // DAte handle
+      dateNow.innerHTML = `${getDateNow()}`
+
+    // socket handle
     socket.on('message', (dt)=>{
         let data = JSON.parse( JSON.stringify( dt ) );
         // console.log('this data socket yehaaa!!', dt)
@@ -60,8 +64,7 @@ const Home = (socket)=>{
             <tr>
                 <td>${index+1}</td>
                 <td>${dat.nombre}</td>
-                <td>${nCar}</td>
-                <td>${dat.puntaje}</td>
+                <td class="stylPts">${dat.puntaje}</td>
             </tr>
             `
         })

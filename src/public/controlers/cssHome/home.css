@@ -1,3 +1,4 @@
+
 .docHome{
     background: rgba(255, 255, 255, 0.205);
     height: 100vh;
@@ -23,6 +24,11 @@
     font-weight: 600;
     font-family: 'IBM Plex Sans', sans-serif;
 }
+
+/* .container{
+    height: 150vh;
+} */
+
 .tag{
     width: auto;
     font-weight: 600;
@@ -70,7 +76,6 @@
 padding-top: .15rem;
 }
 
-
 .styleLive{
     display: flex;
     justify-content: center;
@@ -104,12 +109,16 @@ padding-top: .15rem;
 /* ---------------------------------- */
 
 .buttonActiveStyle{
-    border: 1px solid blue;
+    height: auto;
+    width: 9rem;
+    margin: 1rem auto;
+    border: 1px solid rgb(252, 252, 252);
     border-radius: 10%;
-    box-shadow: 0px 0px 5px 1px rgba(130, 111, 238, 0.7) ;
+    box-shadow: 0px 0px 5px 1px rgba(251, 255, 1, 0.774) ;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    color: blue;
+    color: rgb(236, 252, 10);
+    background: black;
     text-align: center;
 }
 
@@ -117,36 +126,67 @@ padding-top: .15rem;
 
 
 .contTable{
-    padding-bottom: 3rem;
-    height: 100vh;
-    width: 100%;
+    padding: .5rem;
+    /* height: auto; */
+    width: auto;
     border: 1px solid rgba(235, 235, 235, 0.7);
     border-radius: 5%;
     box-shadow: 0px 0px 5px 1px rgba(235, 235, 235, 0.7) ;
 }
 .tableContainer {
     width: 100%;
-    padding: .5rem;
-    /* border: 1px solid rgba(238, 51, 51, 0.7) solid; */
 }
-.tr{
-    /* border: 1px solid black; */
-    background: rgb(255, 255, 255);
-}
+
 tr {
-    background:  rgba(251, 251, 251, 0.8) ;
+    height: 2.5rem;
+    /* border:1px blue solid; */
+    /* background:  rgba(251, 251, 251, 0.8) ; */
     border-radius: 50px;
+}
+.stylPts{
+    font-weight: 600;
 }
 th{
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: start;
     padding-left: .2rem;
 }
 td{
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.1rem;
-    /* font-weight: 200; */
+    border-bottom: 1px solid rgba(214, 214, 214, 0.534);    
     text-align: start;
     padding-left: .2rem;
+}
+
+
+/* ---------------------------- */
+.card{
+    
+    height: 15rem;
+    width: 22rem;
+    border: 1px solid rgb(226, 226, 226);
+    margin: 10px;
+    border-radius: 1%;
+    box-shadow: 0px 0px 5px 1px rgba(235, 235, 235, 0.7) ;
+}
+.card h2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    /* border-bottom: 1px solid rgba(214, 214, 214, 0.534);     */
+    text-align: center;
+    /* padding-left: .2rem; */
+}
+.imgs{
+    display: flex;
+    align-content: space-around;
+}
+img {
+    height: 136px;
+    width: auto;
+    border-radius: 1%;
+}
+.contGaleria{
+    overflow-y: scroll;
 }

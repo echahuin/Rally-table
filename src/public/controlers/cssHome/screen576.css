@@ -18,8 +18,8 @@
 
 /* ---------------------------------- */
 
-.tableContainer {
-    padding: .5rem 4.5rem;
+.contTable {
+    margin: .5rem 4.5rem;
 }
 .tr{
     background: rgb(255, 255, 255);

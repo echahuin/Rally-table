@@ -9,7 +9,6 @@
     padding: 0.5rem;
     height: 35vh ;
     background: rgb(255, 255, 255);
-    /* border: 1px rgba(235, 235, 235, 0.7) solid; */
 }
 
 .styleTitle{
@@ -17,17 +16,13 @@
     padding-top: 4rem;
     padding-bottom: 2rem;
 }
-.styleTitle p{
+.styleTitle P{
     margin: 0;
     text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 3rem;
+    /* font-weight: 800; */
+    font-family: 'Bebas Neue', cursive;
 }
-
-/* .container{
-    height: 150vh;
-} */
 
 .tag{
     width: auto;
@@ -107,31 +102,37 @@ padding-top: .15rem;
 }
 
 /* ---------------------------------- */
-
-.buttonActiveStyle{
-    height: auto;
-    width: 9rem;
-    margin: 1rem auto;
-    border: 1px solid rgb(252, 252, 252);
-    border-radius: 10%;
-    box-shadow: 0px 0px 5px 1px rgba(251, 255, 1, 0.774) ;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: rgb(236, 252, 10);
-    background: black;
-    text-align: center;
-}
-
-/* ---------------------------------- */
-
-
-.contTable{
+.buttonSee{
+    margin: 0 auto;
+    border: 1px rgba(235, 235, 235, 0.7) solid;
     padding: .5rem;
-    /* height: auto; */
-    width: auto;
-    border: 1px solid rgba(235, 235, 235, 0.7);
-    border-radius: 5%;
-    box-shadow: 0px 0px 5px 1px rgba(235, 235, 235, 0.7) ;
+    border-end-end-radius: 50%;
+    border-end-start-radius: 50%;
+    width:3rem;
+    height: 2rem;
+    box-shadow: 0px 1px 10px #e4e4e4;
+    transition: all 400ms ease-out;
+}
+/* ---------------------------------- */
+.svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.container_table_main{
+    margin: 0;
+    margin-top: 3rem;
+    padding: 0.5rem;
+    height: 35vh ;
+    background: rgb(255, 255, 255);
+}
+.contTable{
+    padding: 0rem .5rem .5rem .5rem;
+    background: rgb(255, 255, 255);
+    border: 1px rgba(235, 235, 235, 0.7) solid;
+    box-shadow: 0px 1px 10px #e4e4e4;
 }
 .tableContainer {
     width: 100%;

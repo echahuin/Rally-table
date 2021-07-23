@@ -11,18 +11,41 @@ const Admin = (socket)=>{
         puntaje: 0
     }
     let dataCpy = {}
-    // let dataNow
+    let dataActiveLive = false;
        
     const divElement = document.createElement('div')
     divElement.innerHTML = htmlAdmin;
-
+    
     const forName = divElement.querySelector('#btnClickSend')
-    // const clickUpdate = divElement.querySelector('#btnClickUpdate')
     const valueName = divElement.querySelector('#name')
     const valueNumber =  divElement.querySelector('#number')
     const lstData = divElement.querySelector('#viewTable')
-    // const valueCarrera = divElement.querySelector('#numCarrera') 
+    const check = divElement.querySelector('#buttonActiveLive') 
+    
+    
+    const activeLive = async ()=>{
+        try {
+            const resp = await axios.get(`/stateLive`);
+            dataCpy = JSON.parse( JSON.stringify( resp.data ) );
+            // console.log(dataCpy[0].stateLive)
+            dataActiveLive = dataCpy[0].stateLive;
+        } catch (err) {
+            // console.error(err);
+        }
+    }
+    activeLive()
 
+    check.addEventListener('click', (e)=>{
+
+        if(dataActiveLive){
+            // socket.emit('activeLive', dataActiveLive )
+            dataActiveLive = false
+        }else{
+            dataActiveLive = true
+        }
+        socket.emit('activeLive', dataActiveLive )
+        
+    })
 
     //Event button edit 
     lstData.addEventListener('click', async(e)=>{
@@ -33,10 +56,9 @@ const Admin = (socket)=>{
             dataCpy = JSON.parse( JSON.stringify( resp.data ) );
             valueName.value =  dataCpy.nombre
             valueNumber.value = dataCpy.puntaje
-            // valueCarrera.value = dataCpy.numCarrera
         } catch (err) {
             
-            console.error(err);
+            // console.error(err);
         }
         }if(e.target.innerHTML === 'ELIMINAR'){
 
@@ -44,10 +66,6 @@ const Admin = (socket)=>{
         
     })
 
-// Even listener inputs
-    // valueCarrera.addEventListener('input', (e)=>{
-    //     initialValue.numCarrera = e.target.value;
-    // })
     valueNumber.addEventListener('input', (e)=>{
         initialValue.puntaje = e.target.value;
     })
@@ -83,6 +101,7 @@ forName.addEventListener('click', async(e)=>{
                 _id: ''
             }
         }
+       
         // create Data
         else{
             initialValue.puntaje = parseInt(initialValue.puntaje)
@@ -91,13 +110,12 @@ forName.addEventListener('click', async(e)=>{
 
             } catch (err) {
                 
-                console.error(err);
+                // console.error(err);
             }
             lstData.innerHTML=''
             sendGetRequest()
         }
     });
-
 
     const sendGetRequest = async () => {
         let dataNowUp = {}
@@ -106,7 +124,7 @@ forName.addEventListener('click', async(e)=>{
             dataNowUp = JSON.parse( JSON.stringify( resp.data ) );
             viewLst(dataNowUp)
         } catch (err) {
-            console.error(err);
+            // console.error(err);
         }
     };
     sendGetRequest()
@@ -121,7 +139,7 @@ forName.addEventListener('click', async(e)=>{
             <tr>
                 <th scope="row">${index}</th>
                 <td>${dt.nombre}</td>
-                <td>${dt.puntaje}</td>
+                <td class="stylPts">${dt.puntaje}</td>
                 <td><button id="${dt._id}"  style=color:blue; >EDITAR</button></td>
             </tr>
             `

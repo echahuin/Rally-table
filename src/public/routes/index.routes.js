@@ -3,6 +3,7 @@ import { Home, Admin } from '../controlers'
 
 const viewAdminHtml = document.getElementById('admin')
 const router = (linkRoute)=>{
+    
     const socket = io() 
 
     viewAdminHtml.innerHTML = ``

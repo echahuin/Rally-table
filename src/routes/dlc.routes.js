@@ -1,9 +1,19 @@
 const express = require('express');
 const { isValidObjectId } = require('mongoose');
-const { findById } = require('../models/player');
+const dataStateApp = require('../models/dataStateApp');
+const { findById, populate } = require('../models/player');
 const Player = require('../models/player');
+const DataStateApp = require('../models/dataStateApp');
 const router = express.Router();
 
+//routes for state data table
+
+// router.put('/update', async () => {
+
+// })
+
+
+// routes for update datble
 router.get('/getData', async (req, res) => {
     const player = await Player.find();
     res.json(player);
@@ -15,7 +25,6 @@ router.get('/update/:id', async (req, res) => {
 })
 
 router.post('/postData', async(req, res) => {
-  console.log('postDAta', req.body) 
     const {nombre, puntaje} = req.body;
     const data = new Player({
       // _id,
@@ -40,5 +49,36 @@ router.put('/:id', async(req, res )=>{
   res.json({status: 'update data'})
 })
 
+
+
+router.post('/stateData', async (req, res) => {
+
+  const { stateLive } = req.body
+
+  const dataStateApp = new DataStateApp({
+    stateLive
+  })
+
+  let rta = await dataStateApp.save()
+  if(rta){
+    res.json({
+      status: 'success'
+    })
+  }else {
+    res.json({
+      status: 'error'
+    })
+  }
+
+})
+
+router.get('/stateLive', async(req, res)=>{
+  const stateLive = await DataStateApp.find()
+  if(stateLive){
+    res.json(stateLive);
+  }else {
+    res.json({stateLive: error});
+  }
+})
 
 module.exports = router;

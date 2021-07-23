@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: false}))
 app.use('', require('./src/routes/dlc.routes'))
 
 const server = app.listen(app.get('port'), ()=>{
-    console.log(`estamos dentro del server, ${app.get('port')}`)
+    console.log(`active server, ${app.get('port')}`)
 })
 
 // console.log('this server',server)
@@ -29,22 +29,24 @@ const io = socketIo(server)
 // web socket 
 io.on('connection', async(socket)=>{
 
-    socket.on('active', async(play)=>{
-      console.log('aaaaaaaaaaaaaa')
+    socket.on('active', async()=>{
         const data = await Player.find();
         socket.broadcast.emit('message', data)
-        console.log('new', play)
     })
+
     // const data = await Player.find();
     // socket.broadcast.emit('message', data)
 
-    socket.on('message', async(player)=>{
+    socket.on('message', async()=>{
      
         const data = await Player.find();
         socket.broadcast.emit('message', data)
-        console.log('new conection player', player)
     })
     
+    socket.on('activeLive', async(a)=>{
+        console.log('this data', a)
+        socket.broadcast.emit('activeLive', a)
+    })
     
 });
  

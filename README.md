@@ -1,6 +1,6 @@
 # rally-table
 
-## App para el manejo de resultados de una tabla en vivo, realizado con socket.
+## App para el manejo de resultados de una tabla en vivo, realizado JavaScript.
 
 ### para ver los resultados ingrese a:  https://live-dlc.herokuapp.com/#/
 

@@ -20,32 +20,26 @@ const server = app.listen(app.get('port'), ()=>{
     console.log(`active server, ${app.get('port')}`)
 })
 
-// console.log('this server',server)
-
 const socketIo = require('socket.io');
-const player = require('./src/models/player');
 const io = socketIo(server)
 
 // web socket 
 io.on('connection', async(socket)=>{
 
     socket.on('active', async()=>{
+        // console.log('in ACTIVE')
         const data = await Player.find();
         socket.broadcast.emit('message', data)
     })
     
-    // const data = await Player.find();
-    // socket.broadcast.emit('message', data)
-    
     socket.on('message', async()=>{
-        
+        // console.log('in MESSAGE')
         const data = await Player.find();
-        console.data('this is player', data)
         socket.broadcast.emit('message', data)
     })
     
     socket.on('activeLive', async(a)=>{
-        console.log('this dplayerata', a)
+        // console.log('in ACTIVElIVE')
         socket.broadcast.emit('activeLive', a)
     })
     

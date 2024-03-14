@@ -40,14 +40,12 @@ const Home = (socket)=>{
         }else{
             contLiveState.innerHTML = '<span>Live No Active</span>'
         }
-        // console.log(data)
     })
 
     buttonViewTable.addEventListener('click', (e)=>{
 
         buttonActivTable.style.transform  = "rotate(0deg)"
         if(activeButton){
-            console.log('getData')
             buttonActivTable.style.transform  ="rotate(180deg) translate(0px, 50px)"
             sendGetRequest()
             activeButton = false
@@ -61,11 +59,10 @@ const Home = (socket)=>{
         let dataNowUp = {}
         try {
             const resp = await axios.get('/getData');
-            console.log('this is data in home', resp)
             dataNowUp = JSON.parse( JSON.stringify( resp.data ) );
             paintViewHtml(dataNowUp)
         } catch (err) {
-            // console.error(err);
+            console.error(err);
         }
     };
 
@@ -74,11 +71,9 @@ const Home = (socket)=>{
 
     // socket handle
     socket.on('message', (dt)=>{
-
         let data = JSON.parse( JSON.stringify( dt ) );
         tableView.innerHTML=''
         paintViewHtml(data)
-        
     })
 
     function paintViewHtml (dt) {

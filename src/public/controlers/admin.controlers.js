@@ -27,10 +27,9 @@ const Admin = (socket)=>{
         try {
             const resp = await axios.get(`/stateLive`);
             dataCpy = JSON.parse( JSON.stringify( resp.data ) );
-            // console.log(dataCpy[0].stateLive)
             dataActiveLive = dataCpy[0].stateLive;
         } catch (err) {
-            // console.error(err);
+            console.error(err);
         }
     }
     activeLive()
@@ -38,7 +37,6 @@ const Admin = (socket)=>{
     check.addEventListener('click', (e)=>{
 
         if(dataActiveLive){
-            // socket.emit('activeLive', dataActiveLive )
             dataActiveLive = false
         }else{
             dataActiveLive = true
@@ -52,18 +50,14 @@ const Admin = (socket)=>{
 
         if(e.target.innerHTML === 'EDITAR' ){
          try {
-            const resp = await axios.get(`/update/${e.path[0].id}`);
+            const resp = await axios.get(`/update/${e.target.id}`);
             dataCpy = JSON.parse( JSON.stringify( resp.data ) );
             valueName.value =  dataCpy.nombre
             valueNumber.value = dataCpy.puntaje
         } catch (err) {
-            
-            // console.error(err);
+            console.error(err);
         }
-        }if(e.target.innerHTML === 'ELIMINAR'){
-
-        }
-        
+      }
     })
 
     valueNumber.addEventListener('input', (e)=>{
@@ -76,12 +70,9 @@ const Admin = (socket)=>{
 
 // send Data
 forName.addEventListener('click', async(e)=>{
-    alert('clickme')
-    //   update data
-    console.log(dataCpy)
+    
         if(dataCpy._id){
             dataCpy.puntaje = parseInt(valueNumber.value)
-            console.log(dataCpy.puntaje)
             axios.put(`/${dataCpy._id}`, {
                 numCarrera: dataCpy.numCarrera,
                 nombre: dataCpy.nombre,
@@ -89,10 +80,9 @@ forName.addEventListener('click', async(e)=>{
             })
             .then(res =>
                 {
-                    socket.emit('message', dataCpy )
+                    socket.emit('message')
                     valueNumber.value = 0
                     valueName.value = ''
-                    return console.log('exito')
                 })
             .catch(err => console.log(err))
             lstData.innerHTML=''
@@ -124,7 +114,7 @@ forName.addEventListener('click', async(e)=>{
         let dataNowUp = {}
         try {
             const resp = await axios.get('/getData');
-            console.log('this resp', resp)
+            // console.log('this resp', resp)
             dataNowUp = JSON.parse( JSON.stringify( resp.data ) );
             viewLst(dataNowUp)
         } catch (err) {

@@ -33,18 +33,19 @@ io.on('connection', async(socket)=>{
         const data = await Player.find();
         socket.broadcast.emit('message', data)
     })
-
+    
     // const data = await Player.find();
     // socket.broadcast.emit('message', data)
-
+    
     socket.on('message', async()=>{
-     
+        
         const data = await Player.find();
+        console.data('this is player', data)
         socket.broadcast.emit('message', data)
     })
     
     socket.on('activeLive', async(a)=>{
-        console.log('this data', a)
+        console.log('this dplayerata', a)
         socket.broadcast.emit('activeLive', a)
     })
     

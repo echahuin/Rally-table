@@ -15,8 +15,11 @@ const router = express.Router();
 
 // routes for update datble
 router.get('/getData', async (req, res) => {
-    const player = await Player.find();
-    res.json(player);
+  console.log('me ejecute')
+    const player = await Player.find().then((player)=>res.json(player));
+    console.log('this my playyer data', Player)
+    // res.json(player);
+    res.json({'data': {'data': 'data'}});
 })
 
 router.get('/update/:id', async (req, res) => {

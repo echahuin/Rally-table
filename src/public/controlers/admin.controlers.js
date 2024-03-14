@@ -76,9 +76,12 @@ const Admin = (socket)=>{
 
 // send Data
 forName.addEventListener('click', async(e)=>{
+    alert('clickme')
     //   update data
+    console.log(dataCpy)
         if(dataCpy._id){
             dataCpy.puntaje = parseInt(valueNumber.value)
+            console.log(dataCpy.puntaje)
             axios.put(`/${dataCpy._id}`, {
                 numCarrera: dataCpy.numCarrera,
                 nombre: dataCpy.nombre,
@@ -110,7 +113,7 @@ forName.addEventListener('click', async(e)=>{
 
             } catch (err) {
                 
-                // console.error(err);
+                console.error(err);
             }
             lstData.innerHTML=''
             sendGetRequest()
@@ -121,16 +124,17 @@ forName.addEventListener('click', async(e)=>{
         let dataNowUp = {}
         try {
             const resp = await axios.get('/getData');
+            console.log('this resp', resp)
             dataNowUp = JSON.parse( JSON.stringify( resp.data ) );
             viewLst(dataNowUp)
         } catch (err) {
-            // console.error(err);
+            console.error(err);
         }
     };
-    sendGetRequest()
-
-    function viewLst (res){
     
+    sendGetRequest()
+    function viewLst (res){
+
         ordenArray(res)
 
        return  res.map((dt, index)=>{

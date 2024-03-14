@@ -47,6 +47,7 @@ const Home = (socket)=>{
 
         buttonActivTable.style.transform  = "rotate(0deg)"
         if(activeButton){
+            console.log('getData')
             buttonActivTable.style.transform  ="rotate(180deg) translate(0px, 50px)"
             sendGetRequest()
             activeButton = false
@@ -60,7 +61,7 @@ const Home = (socket)=>{
         let dataNowUp = {}
         try {
             const resp = await axios.get('/getData');
-            // console.log('this is data in home', resp)
+            console.log('this is data in home', resp)
             dataNowUp = JSON.parse( JSON.stringify( resp.data ) );
             paintViewHtml(dataNowUp)
         } catch (err) {

@@ -1,8 +1,24 @@
-# rally-table
+# Tabla de posiciones en vivo
+_Aplicacion donde se pueden actualizar la posicion de cada jugador en vivo_
 
-## App para el manejo de resultados de una tabla en vivo, realizado JavaScript.
+### Instalacion  🔧
+despues de git clone
+```
+npm install
+```
+seguidamente
+```
+npm run webpack
+```
+y para terminar
+```
+npm run dev
+```
 
-### para ver los resultados ingrese a:  https://live-dlc.herokuapp.com/#/
+## Construido con 🛠️
 
-### para poder modificar los datos en tiempo real ingrese a: https://live-dlc.herokuapp.com/#/admin
-
+* [javaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) - actualizacion y edicion de datos.
+* [css](https://developer.mozilla.org/es/docs/Web/css) - estilos y animaciones.
+* [html](https://developer.mozilla.org/es/docs/Web/html) - Diseño y organizacino de arbol de componentes. 
+* [node](https://nodejs.org/en) - instalar dependencias.
+* [socket](https://socket.io/) - actualizar datos en vivo.

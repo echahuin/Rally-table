@@ -10,10 +10,16 @@ seguidamente
 ```
 npm run webpack
 ```
-y para terminar
+
+### Ejecucion 📦
+ejecute
 ```
 npm run dev
 ```
+_dirigase a_ http://localhost:3000/# para visualizar los datos
+y en otra ventana 
+_dirigase a_ http://localhost:3000/#/admin para actualizar los datos
+
 
 ## Construido con 🛠️
 
